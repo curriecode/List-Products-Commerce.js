@@ -9,22 +9,13 @@ const commerce = new Commerce(
 );
 
 export default function App() {
-  let [prodName, setProdName] = useState("");
-  let [description, setDescription] = useState("");
-  let [price, setPrice] = useState("");
-  let [photo, setPhoto] = useState("");
+  let [prodInfo, setProdInfo] = useState([]);
 
   function apichec() {
     commerce.products
       .list()
       .then(result => {
-        console.log(result.data);
-        result.data.map(product => {
-          setProdName(product.name);
-          setDescription(product.description);
-          setPrice(product.price.formatted_with_symbol);
-          setPhoto(product.media.source);
-        });
+        setProdInfo(result.data);
       })
       .catch(err => {
         console.log("ERROR", err);
@@ -33,12 +24,7 @@ export default function App() {
   return (
     <div>
       <button onClick={apichec}>ADD PRODUCT</button>
-      <Product
-        name={prodName}
-        description={description}
-        price={price}
-        photo={photo}
-      />
+      <Product prodInfo={prodInfo} />
     </div>
   );
 }
