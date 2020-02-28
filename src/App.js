@@ -1,5 +1,4 @@
 import "./App.css";
-import axios from "axios";
 import React, { useState } from "react";
 import Commerce from "@chec/commerce.js";
 import Product from "./Product";

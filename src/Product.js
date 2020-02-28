@@ -14,5 +14,5 @@ export default function(props) {
       </div>
     );
   });
-  return <div>{cards}</div>;
+  return <div className="all-cards">{cards}</div>;
 }
