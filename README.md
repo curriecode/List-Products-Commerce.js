@@ -1,8 +1,8 @@
 # List Products
 
-An integration guide to help developers list products using the Commerce.js SDK.
+An integration guide to help developers list products from the Chec API using the Commerce.js SDK.
 
-This project will use v2 of the Commerce.js SDK
+This project id built with the Commerce.js SDK v2.
 
 [Live Demo]()
 
