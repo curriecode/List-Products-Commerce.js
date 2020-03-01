@@ -26,7 +26,12 @@ export default function App() {
     //renders button with click handler that triggers API request
     //renders product cards
     <div>
-      <button onClick={apichec}>ADD PRODUCT</button>
+      <h1 className="title">
+        List Products From Chec API Using Commerce.js SDK
+      </h1>
+      <button className="button" onClick={apichec}>
+        ADD PRODUCT
+      </button>
       <Product prodInfo={prodInfo} />
     </div>
   );
