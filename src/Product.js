@@ -2,7 +2,7 @@ import React from "react";
 import "./Product.css";
 
 export default function(props) {
-  // console.log("inside prodict", props.name);
+  //Dynamically renders product cards based on response from Chec API
   const cards = props.prodInfo.map(product => {
     let key = product.id;
     return (
