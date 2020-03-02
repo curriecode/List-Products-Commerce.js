@@ -1,14 +1,12 @@
-# List Products With Commerce.js SDK
+# List Products With The Commerce.js SDK
 
 An integration guide to help developers list products from the Chec API using the Commerce.js SDK.
 
 This project is built with the Commerce.js SDK v2.
 
-<!-- [Live Demo]() -->
-
 ## Overview
 
-In this guide we will learn how to:
+In this guide you will learn how to:
 
 1. Install the Commerce.js SDK
 2. Make a call to the Chec API using the SDK
@@ -16,19 +14,10 @@ In this guide we will learn how to:
 
 ### Requirements
 
-List the software or tools needed.
-
 - IDE Code Editor: VSCode, Atom, Sublime
 - NPM or yarn
 - Basic HTML
-
-<!-- ### Prerequisites -->
-
-<!-- List prerequisite knowledge if any.
-
-- Basic HTML and CSS
-- React
-- Javascript -->
+- JavaScript
 
 ### Installing Commerce.js
 
@@ -51,36 +40,87 @@ npm install @chec/commerce.js
 
 ### Getting Started
 
-1. Create a [Chec dashboard account](https://dashboard.chec.io/signup) to get API keys and list your products along with prices, images and product descriptions.
+1. Create a [Chec dashboard account](https://dashboard.chec.io/signup) enable Commerce.js to get API keys and list your products along with prices, images and product descriptions.
 
-2. If you haven't already installed the Commerce.js SDK or inserted the CDN into the index.html make sure to do so now following the installation steps above.
+2. If you haven't already installed the Commerce.js SDK in your project or inserted the CDN into the index.html make sure to do so now following the installation steps above.
 
-```
-example script
-```
+3. Import the Commerce.js SDK into your script and create a commerce instance with your Chec API key.
 
-3. Make a request to the Chec API
+```js
+import Commerce from "@chec/commerce.js";
 
-```
-example script
+const commerce = new Commerce("chec_api_key_goes_here", true);
 ```
 
-4. Using the respose to populate your web page
+4. Make a call to the Chec API. This will send back a data object that has all the information about your listed products. You can console log the response to see all the details contained in the data object.
 
+   ```js
+   commerce.products
+     .list()
+     .then(result => {
+       console.log(result.data);
+     })
+     .catch(err => {
+       console.log("ERROR", err);
+     });
+   ```
+
+5. Use the respose to populate your webpage. Depending which framework you're using you can save the data object to a variable or to state, then map over it to dynamically retrive all product items and details from the check API. Here's an example using React.js.
+
+```js
+//App.js
+
+  let [prodInfo, setProdInfo] = useState([]);
+
+  //makes request to Chec API and stores response in prodInfo variable
+  function apichec() {
+    commerce.products
+      .list()
+      .then(result => {
+        setProdInfo(result.data);
+      })
+      .catch(err => {
+        console.log("ERROR", err);
+      });
+  }
+  return (
+    //renders button with click handler that triggers API request
+    //renders product cards
+    <div>
+      <h1 className="title">
+        List Products From Chec API Using Commerce.js SDK
+      </h1>
+      <button className="button" onClick={apichec}>
+        ADD PRODUCT
+      </button>
+      <Product prodInfo={prodInfo} />
+    </div>
+  );
+}
 ```
-example script
+
+```js
+//Product.js a component that will dynamically render product cards for each item by mapping over the data object from the API and accessing the name, description, price and image.
+
+export default function(props) {
+  //Dynamically renders product cards based on response from Chec API
+  const cards = props.prodInfo.map(product => {
+    let key = product.id;
+    return (
+      <div className="card" key={key}>
+        <h1>{product.name}</h1>
+        <h2>{product.description}</h2>
+        <h3>{product.price.formatted_with_symbol}</h3>
+        <img className="pic" src={product.media.source} />
+      </div>
+    );
+  });
+  return <div className="all-cards">{cards}</div>;
+}
 ```
 
-End with linking an example of live project or demo.
-[Live Demo]()
-
-## Built With
-
-- [React.js/ create-react-app](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)
-- [NPM](https://www.npmjs.com/)
-- [dotenv](https://www.npmjs.com/package/dotenv)
-- HTML
-- CSS
+To see the full React.js demo
+[Click Here](https://github.com/curriecode/List-Products-Commerce.js)
 
 ## Contributing Sources
 
