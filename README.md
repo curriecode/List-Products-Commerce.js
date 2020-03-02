@@ -65,7 +65,7 @@ const commerce = new Commerce("chec_api_key_goes_here", true);
      });
    ```
 
-5. Use the respose to populate your webpage. Depending which framework you're using you can save the data object to a variable or to state, then map over it to dynamically retrive all product items and details from the check API. Here's an example using React.js.
+5. Use the response to populate your webpage. Depending which framework you're using you can save the data object to a variable or to state, then map over it to dynamically retrieve all product items and details from the check API. Here's an example using React.js.
 
 ```js
 //App.js
