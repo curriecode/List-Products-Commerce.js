@@ -27,9 +27,11 @@ _Choose either one of the installation methods:_
 
 1. Installing via CDN in the body of your `index.html`
 
-```
-<script type="text/javascript" src="https://assets.chec-cdn.com/v2/commerce.js"></script>
-
+```html
+<script
+  type="text/javascript"
+  src="https://assets.chec-cdn.com/v2/commerce.js"
+></script>
 ```
 
 2. Installing via SDK with NPM in the command line
