@@ -8,7 +8,7 @@ import Product from "./Product";
 const commerce = new Commerce(process.env.REACT_APP_API_KEY, true);
 
 export default function App() {
-  //useState updtaes to pass API response data to Product component
+  //useState updates to pass API response data to Product component
   let [prodInfo, setProdInfo] = useState([]);
 
   //makes request to Chec API and stores response in prodInfo variable
