@@ -11,10 +11,13 @@ export default function(props) {
     let key = product.id;
     return (
       <div className="card" key={key}>
-        <h1>{product.name}</h1>
-        <h2>{formatDescription}</h2>
-        <h3>{product.price.formatted_with_symbol}</h3>
+        <h3 className="price">{product.price.formatted_with_symbol}</h3>
         <img className="pic" src={product.media.source} alt="" />
+        <h1 className="name">{product.name}</h1>
+        <h2 className="description">{formatDescription}</h2>
+        <div className="cart">
+        <button className="cart-button">Add to Cart</button>
+        </div>
       </div>
     );
   });
