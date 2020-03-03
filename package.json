@@ -2,6 +2,9 @@
   "name": "commerce-js",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "11.x"
+  },
   "dependencies": {
     "@chec/commerce.js": "^2.0.1",
     "@testing-library/jest-dom": "^4.2.4",
