@@ -5,7 +5,7 @@ import Commerce from "@chec/commerce.js";
 import Product from "./Product";
 //creates an instance to call the SDK -- api key can be inserted here  directly
 //or stored in environment variable for greater security
-const commerce = new Commerce(process.env.REACT_APP_API_KEY, true);
+const commerce = new Commerce("pk_test_1784440b0ce428aea73b0e287813c4f3ccb4f7ee613b4", true);
 
 export default function App() {
   //useState updates to pass API response data to Product component
