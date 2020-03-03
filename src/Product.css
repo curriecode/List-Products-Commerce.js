@@ -1,14 +1,55 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  justify-content: space-evenly;
+  width: 350px;
   height: 500px;
   border: 2px solid black;
-  margin: 5px;
+  margin: 15px;
   padding: 5px;
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
 }
 .pic {
-  height: 200px;
+  height: 275px;
+}
+
+.price {
+  position: absolute;
+  /* display: flex; */
+  width: 100px;
+  background-color: rgb(221, 220, 220);
+  padding: 5px;
+  margin: 0px;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.name {
+  margin: 0px;
+  margin-top: 5px;
+  font-size: 1.7em;
+  color: blue;
+}
+
+.description {
+  font-weight: normal;
+  font-size: 1.4em;
+}
+
+.cart {
+  /* display: flex; */
+}
+
+.cart-button {
+  bottom: 1px;
+  width: 100px;
+  height: 35px;
+  background-color: rgb(44, 160, 255);
+  color: white;
+  font-weight: bold;
+  font-size: 0.8em;
+  border-radius: 3px;
 }
 .all-cards {
   display: flex;
