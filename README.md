@@ -23,7 +23,7 @@ This is a mini project that can be used as an example of how to list products fr
 
 ## Final Product
 
-![Photo of product cards](./src/docs/list-products.png)
+![Photo of product cards](./src/docs/products.png)
 
 ## Getting started
 
