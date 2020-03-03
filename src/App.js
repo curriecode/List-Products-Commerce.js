@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //imports commerce/js SDK
 import Commerce from "@chec/commerce.js";
 import Product from "./Product";
@@ -12,27 +12,32 @@ export default function App() {
   let [prodInfo, setProdInfo] = useState([]);
 
   //makes request to Chec API and stores response in prodInfo variable
-  function apichec() {
+  function callChecApi() {
     commerce.products
       .list()
       .then(result => {
+        console.log(result.data)
         setProdInfo(result.data);
       })
       .catch(err => {
         console.log("ERROR", err);
       });
   }
+
+  //useEffect will call the chec API on page load to list all products from the API
+  useEffect(() => {
+    callChecApi()
+  }, [])
+
   return (
-    //renders button with click handler that triggers API request
     //renders product cards
     <div>
       <h1 className="title">
         List Products From Chec API Using Commerce.js SDK
       </h1>
-      <button className="button" onClick={apichec}>
-        ADD PRODUCT
-      </button>
-      <Product prodInfo={prodInfo} />
+      <Product 
+      prodInfo={prodInfo}
+      />
     </div>
   );
 }
